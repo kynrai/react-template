@@ -1,12 +1,12 @@
+import { MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'src/pages/app';
-import * as serviceWorker from './serviceWorker';
-import history from 'src/configs/history';
 import { Router } from 'react-router-dom';
-import 'typeface-roboto';
-import { MuiThemeProvider } from '@material-ui/core';
+import history from 'src/configs/history';
+import App from 'src/pages/app';
 import mainTheme from 'src/themes/main';
+import 'typeface-roboto';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <MuiThemeProvider theme={mainTheme}>

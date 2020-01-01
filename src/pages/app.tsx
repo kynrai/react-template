@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from 'src/routes/router';
 import NavBar from 'src/components/navbar';
+import Router from 'src/routes/router';
 
 const App: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Redirect, RouteComponentProps, RouteProps } from 'react-router-dom';
+import { Redirect, Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 import * as ROUTES from 'src/routes/routes';
 
 type Props = RouteProps & {
