@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { TextField } from '@material-ui/core';
 
 const Home: React.FC = () => {
-  return <h1>Home Page</h1>;
+  return <TextField color="primary" />;
 };
 
 export default Home;
