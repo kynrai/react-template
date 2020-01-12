@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import NavLayout from 'src/layouts/nav-layout';
 import Home from 'src/pages/home';
 import Login from 'src/pages/login';
 import NotFound from 'src/pages/not-found';
@@ -10,8 +11,12 @@ import * as ROUTES from 'src/routes/routes';
 const Router = () => {
   return (
     <Switch>
-      <Route exact path={ROUTES.HOME} component={Home} />
-      <Route path={ROUTES.LOGIN} component={Login} />
+      <NavLayout exact path={ROUTES.HOME}>
+        <Home />
+      </NavLayout>
+      <NavLayout path={ROUTES.LOGIN}>
+        <Login />
+      </NavLayout>
       <ProtectedRoute path={ROUTES.PROTECTED} component={Protected} />
       <Route component={NotFound} />
     </Switch>

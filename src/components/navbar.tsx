@@ -6,8 +6,13 @@ import * as ROUTES from 'src/routes/routes';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    root: {
+      display: 'flex',
+    },
+    drawer: {
+      flexShrink: 0,
+    },
     drawerPaper: {
-      position: 'relative',
       whiteSpace: 'nowrap',
       width: 240,
     },
