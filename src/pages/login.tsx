@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@material-ui/core';
 import * as React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import LoginForm from 'src/components/login-form';
 import AuthClient from 'src/libs/auth';
 import * as ROUTES from 'src/routes/routes';
 
@@ -31,6 +32,7 @@ const Login: React.FC = () => {
       )}
       <Button onClick={login}>Log in</Button>
       <Button onClick={logout}>Log Out</Button>
+      <LoginForm />
     </Box>
   );
 };

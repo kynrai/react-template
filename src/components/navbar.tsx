@@ -9,9 +9,6 @@ const useStyles = makeStyles(theme =>
     root: {
       display: 'flex',
     },
-    drawer: {
-      flexShrink: 0,
-    },
     drawerPaper: {
       whiteSpace: 'nowrap',
       width: 240,
