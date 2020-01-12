@@ -20,6 +20,11 @@ const useStyles = makeStyles(theme =>
 const NavBar: React.FC = () => {
   const classes = useStyles();
 
+  const links = [
+    { linkText: 'Home', to: ROUTES.HOME, icon: Dashboard, exact: true },
+    { linkText: 'Login', to: ROUTES.LOGIN, icon: Lock, exact: false },
+    { linkText: 'Protected', to: ROUTES.PROTECTED, icon: Lock, exact: false },
+  ];
   return (
     <>
       <Drawer
@@ -28,19 +33,22 @@ const NavBar: React.FC = () => {
           paper: classes.drawerPaper,
         }}
       >
-        <Typography>Fluit</Typography>
-        <ListItem button key="Home" component={NavLink} to="/" exact activeClassName={classes.activeLink}>
-          <ListItemIcon>
-            <Dashboard />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button key="Login" component={NavLink} to={ROUTES.LOGIN} activeClassName={classes.activeLink}>
-          <ListItemIcon>
-            <Lock />
-          </ListItemIcon>
-          <ListItemText primary="Login" />
-        </ListItem>
+        <Typography>Site</Typography>
+        {links.map(({ linkText, to, icon: Icon, exact }) => (
+          <ListItem
+            button
+            key={linkText}
+            component={NavLink}
+            to={to}
+            exact={exact}
+            activeClassName={classes.activeLink}
+          >
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
+            <ListItemText primary={linkText} />
+          </ListItem>
+        ))}
       </Drawer>
     </>
   );

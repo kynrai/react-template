@@ -11,8 +11,8 @@ const Router = () => {
   return (
     <Switch>
       <Route exact path={ROUTES.HOME} component={Home} />
-      <Route exact path={ROUTES.LOGIN} component={Login} />
-      <ProtectedRoute exact path={ROUTES.PROTECTED} component={Protected} />
+      <Route path={ROUTES.LOGIN} component={Login} />
+      <ProtectedRoute path={ROUTES.PROTECTED} component={Protected} />
       <Route component={NotFound} />
     </Switch>
   );
