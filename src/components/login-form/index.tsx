@@ -1,19 +1,20 @@
 import {
   Box,
-  Button,
+  ButtonBaseProps,
   createStyles,
-  FilledInput,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   makeStyles,
+  OutlinedInput,
   TextField,
   Typography,
 } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import * as React from 'react';
+import StyledButton from 'src/ui/button';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -24,16 +25,12 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-interface Props {
-  onSubmit: (email: string, password: string) => void;
-}
-
 interface LoginState {
   email: string;
   password: string;
 }
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<Pick<ButtonBaseProps, 'onClick'>> = ({ onClick }) => {
   const [loginState, setLoginState] = React.useState<LoginState>({
     email: '',
     password: '',
@@ -49,17 +46,20 @@ const LoginForm: React.FC = () => {
   };
 
   const classes = useStyles();
+  const labelWidth = 0;
+
   return (
     <Box className={classes.root}>
       <Typography>Login</Typography>
       <TextField variant="outlined" label="email" value={loginState.email} onChange={handleChange('email')} />
-      <FormControl variant="filled">
-        <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
-        <FilledInput
-          id="filled-adornment-password"
+      <FormControl variant="outlined">
+        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-password"
           type={showPassword ? 'text' : 'password'}
           value={loginState.password}
           onChange={handleChange('password')}
+          labelWidth={labelWidth}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -74,8 +74,8 @@ const LoginForm: React.FC = () => {
           }
         />
       </FormControl>
-      <Button>Login</Button>
-      <Typography>{JSON.stringify(loginState, null, '\t')}</Typography>
+      <StyledButton onClick={onClick}>Login</StyledButton>
+      <Typography>{JSON.stringify(loginState)}</Typography>
     </Box>
   );
 };

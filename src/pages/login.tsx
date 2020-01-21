@@ -25,14 +25,13 @@ const Login: React.FC = () => {
 
   return (
     <Box>
-      {AuthClient.isAuthenticated ? (
-        <Typography variant="body1">You are already logged in</Typography>
-      ) : (
-        <Typography variant="body1">You must log in to view the page at {from.pathname}</Typography>
-      )}
-      <Button onClick={login}>Log in</Button>
+      <Typography variant="body1">
+        {AuthClient.isAuthenticated
+          ? 'You are already logged in'
+          : `You must log in to view the page at ${from.pathname}`}
+      </Typography>
       <Button onClick={logout}>Log Out</Button>
-      <LoginForm />
+      <LoginForm onClick={login} />
     </Box>
   );
 };
